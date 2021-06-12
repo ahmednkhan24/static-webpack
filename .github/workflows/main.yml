@@ -1,8 +1,13 @@
 name: CI
 
+# only run job on changes to the src directory, the package.json, or the webpack.config.js files
 on:
   push:
     branches: [main]
+    paths:
+      - src/**
+      - package.json
+      - webpack.config.js
 
 jobs:
   build-and-deploy:
