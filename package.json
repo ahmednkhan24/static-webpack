@@ -1,8 +1,7 @@
 {
   "name": "static-webpack",
   "version": "1.0.0",
-  "description": "Vanilla HTML, CSS, JS Webpack project",
-  "main": "index.js",
+  "description": "HTML, CSS, JS Webpack project",
   "repository": "git@github.com:ahmednkhan24/static-webpack.git",
   "license": "MIT",
   "scripts": {
