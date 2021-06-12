@@ -2,25 +2,43 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
-    
+    branches: [main]
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # Checks-out repository under $GITHUB_WORKSPACE, so job can access it.
       - name: Checkout 🛎️
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.1
 
-      # This project is built using yarn and outputs the result to the 'dist' folder.
-      - name: Install and Build 🔧
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
-          yarn install
-          yarn build
-          
+          npm install
+          npm run build
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: dist # The folder the action should deploy.
+
+
+  # build:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     # Checks-out repository under $GITHUB_WORKSPACE, so job can access it.
+  #     - name: Checkout 🛎️
+  #     - uses: actions/checkout@v2
+
+  #     # This project is built using yarn and outputs the result to the 'dist' folder.
+  #     - name: Install and Build 🔧
+  #       run: |
+  #         yarn install
+  #         yarn build
+
+  #     - name: Deploy 🚀
+  #       uses: JamesIves/github-pages-deploy-action@4.1.4
+  #       with:
+  #         branch: gh-pages # The branch the action should deploy to.
+  #         folder: dist # The folder the action should deploy.
