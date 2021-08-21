@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --open",
+    "prebuild": "rm -rf dist",
     "build": "webpack"
   },
   "devDependencies": {
