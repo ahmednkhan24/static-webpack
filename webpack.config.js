@@ -28,7 +28,10 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new CopyWebpackPlugin({
-      patterns: [{ from: './src/assets', to: 'assets' }]
+      patterns: [
+        { from: './src/assets', to: 'assets' },
+        { from: './src/manifest.json', to: './manifest.json' }
+      ]
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
