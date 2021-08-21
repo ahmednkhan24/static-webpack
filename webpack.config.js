@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // clean dist folder on every build
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // copy assets like png/jpg/svg
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const PATHS = {
@@ -27,7 +27,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    new CopyPlugin({
+    new CopyWebpackPlugin({
       patterns: [{ from: './src/assets', to: 'assets' }]
     }),
     new HtmlWebpackPlugin({
