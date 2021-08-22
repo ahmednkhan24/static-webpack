@@ -1,3 +1,4 @@
+const path = require('path');
 // extract CSS into it's own bundle
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // css minifier
@@ -10,7 +11,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // copy assets like png/jpg/svg
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
+// configure service worker
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 const PATHS = {
   src: path.resolve(__dirname, 'src/main.js'),
@@ -35,7 +37,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new WorkboxWebpackPlugin.GenerateSW()
   ],
   module: {
     rules: [
